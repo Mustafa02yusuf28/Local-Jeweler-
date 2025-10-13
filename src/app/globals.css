@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(135deg, #25344F 0%, #1a2332 50%, #2a3a4f 100%);
+  --foreground: #e5e7eb; /* gray-200 */
+  --card: rgba(103, 120, 145, 0.15);
+  --muted: #9ca3af; /* gray-400 */
+  --primary: #D6B893; /* bronze */
+  --primary-600: #C4A478;
+  --ring: rgba(214, 184, 147, 0.4);
+  --border-bronze: rgba(214, 184, 147, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Force light theme with black text across the app */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ensure form fields are readable in both light and dark */
+input, select, textarea {
+  background-color: #0b0e12;
+  color: #e5e7eb;
+  border-color: #243042;
+}
+input::placeholder, textarea::placeholder {
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Utility classes for cards and headers */
+.card { background-color: var(--card); border-radius: 14px; box-shadow: 0 6px 28px rgba(0,0,0,0.35); border: 1px solid var(--border-bronze); margin-top: 12px; backdrop-filter: blur(10px); }
+.section-title { color: var(--foreground); font-weight: 700; }
+.btn-primary { background: rgba(214, 184, 147, 0.1); color: var(--primary); font-weight: 600; border: 1px solid var(--border-bronze); }
+.btn-primary:hover { background: rgba(214, 184, 147, 0.2); }
+.focus-ring:focus { outline: none; box-shadow: 0 0 0 3px var(--ring); }
