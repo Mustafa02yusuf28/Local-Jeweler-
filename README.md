@@ -38,6 +38,16 @@ Data & backups
 - Database: `data/app.db` (created automatically)
 - Excel backup: `data/backup.xlsx` (updated after each invoice)
 
+Environment
+-----------
+To enable Gemini (optional), create a `.env.local` in `web/` with:
+
+```bash
+GEMINI_API_KEY=your_key_here
+# Optional (defaults to gemini-2.0-flash):
+GEMINI_MODEL=gemini-2.0-flash
+```
+
 Printing
 --------
 - Use the “Print Invoice” button on the Billing page
