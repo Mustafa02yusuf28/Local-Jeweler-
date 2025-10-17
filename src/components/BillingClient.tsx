@@ -41,6 +41,18 @@ export default function BillingClient() {
     miscItems: [],
   });
 
+  // Prefill bill from chat (sessionStorage)
+  useEffect(() => {
+    try {
+      const prefill = sessionStorage.getItem("prefillBill");
+      if (prefill) {
+        const parsed = JSON.parse(prefill);
+        if (parsed && typeof parsed === 'object') setBill((b) => ({ ...b, ...parsed }));
+        sessionStorage.removeItem("prefillBill");
+      }
+    } catch {}
+  }, []);
+
   const totals = useMemo(() => computeBillTotals(bill), [bill]);
 
   // Prefill from query params (coming from Customers page "New Bill")
